@@ -16,19 +16,17 @@ const ImageItem = ({
   const [image, setImage] = useState<string>("");
 
   supabaseClient.storage
-    .from("entry_record")
+    .from("files")
     .download(`${userId}/${item.name}`)
     .then(({ data }) => {
-      console.log("Downloaded image", data);
       const fr = new FileReader();
-      if (data) {
-        fr.readAsDataURL(data!);
-        fr.onload = () => {
-          setImage(fr.result as string);
-        };
-      }
+      fr.readAsDataURL(data!);
+      fr.onload = () => {
+        setImage(fr.result as string);
+      };
     });
   
+  console.log("Downloaded image", image);
 
   return (
     <View
