@@ -13,8 +13,8 @@ import Spinner from "react-native-loading-spinner-overlay";
 import { supabaseClient } from "../config/initSupabase";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("laukeymwaura@gmail.com");
+  const [password, setPassword] = useState("password");
   const [loading, setLoading] = useState(false);
 
   // Sign in with email and password
